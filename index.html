@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>fontscroll v0</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+
+   $(document).mousemove(function(e){
+   		e.preventDefault();
+      //console.log(e.pageX);
+      //console.log($(window).width());
+
+      var alap = ['Aa','Bb','Cc','Dd','Ee',"Ff", "Gg","Hh", "Ii", "Jj", "Kk","Ll", "Mm", "Nn", "Oo", "Pp", "Qq", "Rr", "Ss", "Tt", "Uu", "Vv", "Ww", "Xx", "Yy", "Zz"];
+      var fonts = ['Open Sans','Vollkorn','PT Sans','Helvetica','Comic Sans MS','Georgia','Times New Roman','Arial','Lucida Sans Unicode','Tahoma','Trebuchet MS','Courier New','Lucida Console'];
+
+      var mouseX = e.pageX; 
+      var windowW = $(window).width();
+      var windowH = $(window).height();
+      var segments = windowW / 26;
+      var segmentsRound = Math.round(segments);
+      var segments2 = windowH / fonts.length;
+      var segmentsRound2 = Math.round(segments2);
+
+	for(i=0; i < 26; i++){
+		if (segmentsRound * (i + 1) > e.pageX && segmentsRound * i < e.pageX) {
+			$("#font").html(alap[i]);
+		}
+	}
+
+	for(i=0; i < fonts.length; i++){
+		if (segmentsRound2 * (i + 1) > e.pageY && segmentsRound2 * i < e.pageY) {
+			console.log(fonts[i]);
+			$("#font").css("font-family", fonts[i]);
+			$("#footer").css("font-family", fonts[i]);
+			$("#footer").html(fonts[i]);
+		}
+	}
+	
+   });
+
+})
+	</script>
+	<style>
+	body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	cursor: move;
+}
+
+#vertically-center {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+#vertically-center2 {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#font {
+	color: #333333;
+	font-weight: normal;
+	font-size: 12vw;
+	line-height: 1;
+}
+
+footer {
+	color: #999999 ;
+	position: fixed;
+	bottom: 40px;
+	text-align: center;
+	width: 100%;
+	font-size: 2vw;
+}
+	</style>
+
+</head>
+<body>
+	<div id="vertically-center">
+		<div id="vertically-center2">
+			<h1 id="font">Aa</h1>
+		</div>
+	</div>
+	<footer id="footer">Helvetica Neue</footer>
+</body>
+</html>
