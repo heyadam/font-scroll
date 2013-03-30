@@ -1,0 +1,33 @@
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+#vertically-center {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+#vertically-center2 {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#font {
+	color: #333333;
+	font-weight: normal;
+	font-size: 12vw;
+	line-height: 1;
+}
+
+footer {
+	color: #999999 ;
+	position: fixed;
+	bottom: 40px;
+	text-align: center;
+	width: 100%;
+	font-size: 2vw;
+}
